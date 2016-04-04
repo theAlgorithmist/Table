@@ -1,0 +1,66 @@
+<!-- Table analysis demo -->
+<div class="container-fluid rounded">
+  <div class="row">
+    <img class="img-responsive tbl-logo-img" src="/assets/eyes.png">
+    <div>
+      <span class="pull-left">The Algorithmist</span>
+      <span class="pull-right">Table Analysis</span>
+    </div>
+  </div>
+
+  <div class="row tbl-content" *ngIf="_visible">
+    <p class='tbl-h1'>Car Data</p>
+    <div class='tbl-pad-bottom'>
+      <span class='tbl-h1'>Headers </span><span *ngFor="#h of _header">{{h}} &nbsp;</span>
+    </div>
+    <div>
+      <span class='tbl-h1'>Price Quartiles </span> [ <span *ngFor="#q of _quartile">{{q | number:'4.1-1'}} &nbsp;</span> ]
+    </div>
+    <div>
+      <span class='tbl-h1'>Price Quintiles </span> [ <span *ngFor="#q1 of _quintile">{{q1 | number:'4.1-1'}} &nbsp;</span> ]
+    </div>
+    <div>
+      <span class='tbl-h1'>Price Stats: </span> mean: {{_priceMean | number:'4.1-2'}} &nbsp; std. dev: {{_priceStd | number:'4.1-2'}}
+    </div>
+    <div> 
+      <div class='tbl-h1'>One-way analysis of model year</div>
+      <div>
+        <ul>
+          <li *ngFor="#i of _itemCounts">{{i.item}} : {{i.count}}</li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <span class='tbl-h1'>Cross-Table (model sales, simple vs. bold color)</span>
+    </div>
+    <div>
+      <span class='tbl-h1'>Total observations: {{_observations}} &nbsp; Table chi-2: {{_tableChi2 | number:'1.1-3'}}</span>
+    </div>
+    <div class="tbl-pad-top tbl-center">
+      <table class="table table-striped table-bordered">
+        <th>Model</th>
+        <th>Simple Color</th>
+        <th>Bold Color</th>
+        <th>Row Count</th>
+        <tr *ngFor="#key of _tblRows">
+          <td>{{key.model}}</td>
+          <td>{{key.c1n}} <br/> {{key.c1r | number:'1.1-3'}} <br/> {{key.c1t | number:'1.1-3'}}</td>
+          <td>{{key.c2n}} <br/> {{key.c2r | number:'1.1-3'}} <br/> {{key.c2t | number:'1.1-3'}}</td>
+          <td>{{key.count}}</td>
+        </tr>
+        <tr>
+          <td>Column Counts</td>
+          <td>{{_colCount1}}</td>
+          <td>{{_colCount2}}</td>
+          <td>&nbsp;</td>
+        </tr>
+      </table>
+    </div>
+   </div>
+
+   <div class="row" *ngIf="!_visible">
+    <div class="pull-right">
+      <button class='btn btn-small btn-success' (click)='onGetData()'>Get Data</button>
+    </div>
+  </div>
+</div>

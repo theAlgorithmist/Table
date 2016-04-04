@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+  <base href="/">
+  <!-- <script>document.write('<base href="' + document.location + '" />');</script> -->
+
+  <meta charset="utf-8">
+  <title>The Algorithmist Tablular Data Analytics</title>
+
+  <!-- Collective styling for the entire app -->
+  <link rel="stylesheet" type="text/css" href="css/tbl-app.css">
+</head>
+<body>
+    
+  <!-- Angular 2 (beta) Table Analysis Demo -->
+  <tbl-demo>Loading ...</tbl-demo>
+
+  <!-- The usual suspects ... -->
+  <script src='node_modules/angular2/bundles/angular2-polyfills.js'></script>
+  <script src='node_modules/es6-shim/es6-shim.js'></script>
+  <script src="node_modules/systemjs/dist/system-polyfills.js"></script>
+  <script src='node_modules/systemjs/dist/system.src.js'></script>
+  <script src='node_modules/rxjs/bundles/Rx.js'></script>
+  <script src='node_modules/angular2/bundles/angular2.dev.js'></script>
+  <script src='node_modules/angular2/bundles/http.dev.js'></script>
+  <script>
+    System.config({
+      packages: {        
+        app: {
+          format: 'register',
+          defaultExtension: 'js'
+        }
+      },
+
+      map: {
+        'rxjs/operator/*': 'node_modules/rxjs/add/operator/*.js',
+        'rxjs/*' : 'node_modules/rxjs/*.js'
+      }
+
+   });
+ 
+   System.import('app/boot')
+     .then(window.onLoad)
+     .catch(console.error.bind(console));
+  </script>
+
+</body>
+</html>
