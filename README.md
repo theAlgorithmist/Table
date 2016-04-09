@@ -44,13 +44,12 @@ I hope that you find something instructive from the code and are interested in i
 All source files are provided in a *src* folder.  Gulp is used to build and run the demo and two gulp files are provided for the 'dev' and 'prod' versions of the code.  The file, *gulpfile.js* controls the 'dev' version while *gulpFile-prod.js* controls the 'prod' version.  For development and debugging, there are a number of gulp tasks which are documented below.
 
 ```sh
-$ gulp clean (deletes everything in the build folder)
-$ gulp copy:html (copies the index.html file from /src to /build)
-$ gulp copy:templates (copies all angular 2 templates files into appropriate build folder)
-$ gulp copy:css (copies all css files into appropriate build folder - you can add a build step if you like SaSS)
-$ gulp copy:assets (copies all visual assets into appropriate build folder)
+$ gulp clean (deletes everything in the dev folder)
+$ gulp copy:html (copies the index.html file from /src to /dev)
+$ gulp copy:templates (copies all angular 2 templates files into dev folder)
+$ gulp copy:css (copies all css files into dev folder - you can add a build step if you like SaSS)
+$ gulp copy:assets (copies all visual assets into dev folder)
 $ gulp copy:framework (copies all Angular 2 framework files into appropriate location - should only need to be done once)
-$ gulp copy:vendor (copies relevant vendor files - EaselJS for this demo)
 $ gulp tslint (lints all Typescript files in the source)
 $ gulp compile (compiles all src .ts files and places them in the appropriate build location)
 $ gulp serve (launch a browser and run the application while watching for file changes)
